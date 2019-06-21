@@ -353,3 +353,17 @@ class PTVClient(object):
         path.format(route_id)
         params = {}
         return self._callApi(path, params)
+
+    def get_route_types(self):
+        """
+        View all route types and their names
+
+        Returns
+        -------
+        RouteTypes : dict
+            All route types (i.e. identifiers of transport modes) and their names.
+        """
+        path = "/v3/route_types"
+        params = {}
+        return self._callApi(path, params)
+        
