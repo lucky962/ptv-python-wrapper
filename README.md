@@ -8,6 +8,7 @@ from ptv.client import PTVClient
 
 client = PTVClient(DEV_ID, API_KEY)
 ```
+
 ### Get Departures from Stop
 View departures from a stop
 ```
@@ -49,6 +50,47 @@ Example:
 client.get_departure_from_stop(0, 1071)
 ```
 
+### Get Directions for Route
+View directions for route
+```
+Parameters
+----------
+route_id : int
+    Identifier of route; values returned by Routes API - v3/routes
+        
+Optional Parameters
+-------------------
+route_type : int
+    Number identifying transport mode; values returned via RouteTypes API
+
+Returns
+-------
+Directions : dict
+    Dictionary of directions
+```
+Example:
+```
+client.get_directions_for_route(1)
+```
+
+### Get Route for Direction
+View Routes for Direction
+```
+Parameters
+----------
+direction_id : int
+    Identifier of direction of travel; values returned by Directions API - /v3/directions/route/{route_id}
+
+Returns
+-------
+Routes : dict
+    All routes that travel in the specified direction.
+```
+Example;
+```
+client.get_route_for_direction(1)
+```
+
 ## Progress
 This is a work-in-progress api wrapper
 
@@ -60,10 +102,10 @@ The things we are working on:
 - [x] Departures
     - [x] View departures for all routes from a stop
     - [x] View departures for a specific route from a stop
-- [ ] Directions
-    - [ ] View directions that a route travels in
-    - [ ] View all routes for a directino of travel
-    - [ ] View all routes of a particular type for a direction of travel
+- [x] Directions
+    - [x] View directions that a route travels in
+    - [x] View all routes for a directino of travel
+    - [x] View all routes of a particular type for a direction of travel
 - [ ] Disruptions
     - [ ] View all disruptions for all route types
     - [ ] View all disruptions for a particular route
@@ -94,3 +136,4 @@ The things we are working on:
     - [ ] View all stops near a specific location
 - [ ] Other
     - [ ] Documentation
+    
