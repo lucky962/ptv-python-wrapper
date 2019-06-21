@@ -399,6 +399,37 @@ Example
 client.get_stops_for_route(1, 0)
 ```
 
+### View all stops near a specific location
+View all stops near a specific location
+```
+Parameters
+----------
+latitude : float
+    Geographic coordinate of latitude
+longitude : float
+    Geographic coordinate of longitude
+
+Optional Parameters
+-------------------
+route_types : Array[int]
+    Filter by route_type; values returned via RouteTypes API
+max_results : int
+    Maximum number of results returned (default = 30)
+max_distance : double  
+    Filter by maximum distance (in metres) from location specified via latitude and longitude parameters (default = 300)
+stop_disruptions : bool
+    Indicates if stop disruption information will be returned (default = false)
+
+Returns
+-------
+stops : dict
+    All stops near the specified location.
+```
+Example
+```
+client.get_stops_for_location(123,123)
+```
+
 ## Progress
 This is a work-in-progress api wrapper
 
@@ -441,7 +472,7 @@ The things we are working on:
 - [x] Stops
     - [x] View facilities at a specific stop (Metro and V/Line stations only)
     - [x] View all stops on a specific route
-    - [ ] View all stops near a specific location
+    - [x] View all stops near a specific location
 - [ ] Other
     - [ ] Setup.py
     - [ ] Documentation

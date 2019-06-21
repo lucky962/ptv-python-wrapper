@@ -564,3 +564,43 @@ class PTVClient(object):
         if stop_disruptions:
             params['stop_disruptions'] = str(stop_disruptions).lower()
         return self._callApi(path, params)
+
+    def get_stops_for_location(self, latitude, longitude, route_types=None, max_results=None, max_distance=None, stop_disruptions=None):
+        """
+        View all stops near a specific location
+
+        Parameters
+        ----------
+        latitude : float
+            Geographic coordinate of latitude
+        longitude : float
+            Geographic coordinate of longitude
+
+        Optional Parameters
+        -------------------
+        route_types : Array[int]
+            Filter by route_type; values returned via RouteTypes API
+        max_results : int
+            Maximum number of results returned (default = 30)
+        max_distance : double  
+            Filter by maximum distance (in metres) from location specified via latitude and longitude parameters (default = 300)
+        stop_disruptions : bool
+            Indicates if stop disruption information will be returned (default = false)
+
+        Returns
+        -------
+        stops : dict
+            All stops near the specified location.
+        """
+        path = "/v3/stops/location/{},{}"
+        path.format(latitude, longitude)
+        params = {}
+        if route_types:
+            params['route_types'] = route_types
+        if max_results:
+            params['max_results'] = max_results
+        if max_distance:
+            params['max_distance'] = max_distance
+        if stop_disruptions:
+            params['stop_disruptions'] = stop_disruptions
+        return self._callApi(path, params)
