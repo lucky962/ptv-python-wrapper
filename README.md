@@ -185,7 +185,7 @@ The things we are working on:
     - [x] View a specific disruption
     - [x] Get all disruptions modes
 - [ ] Outlets
-    - [ ] List all ticket outlets
+    - [x] List all ticket outlets
     - [ ] List ticket outlets near a specific location
 - [ ] Patterns
     - [ ] View the stopping pattern for a specific trip/service run
