@@ -304,8 +304,8 @@ The things we are working on:
 - [x] RouteTypes
     - [x] View all route types and their names
 - [x] Runs
-    - [ ] View all trip/service runs for a specific route ID
-    - [ ] View all trip/service runs for a specific route ID and route type
+    - [x] View all trip/service runs for a specific route ID
+    - [x] View all trip/service runs for a specific route ID and route type
     - [x] View all trip/service runs for a specific run ID
     - [x] View the trip/service runs for a specific run ID and route type
 - [ ] Search
