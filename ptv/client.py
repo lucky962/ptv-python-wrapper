@@ -418,3 +418,62 @@ class PTVClient(object):
         if route_type:
             path += f"/route_type/{route_type}"
         return self._callApi(path, params)
+
+    def search(self, search_term, route_types=None, latitude=None, longitude=None, max_distance=None, include_addresses=None, include_outlets=None, match_stop_by_suburb=None, match_route_by_suburb=None, match_stop_by_gtfs_stop_id=None):
+        """
+        View stops, routes and myki outlets that match the search term
+
+        Parameters
+        ----------
+        search_term : str
+            Search text (note: if search text is numeric and/or less than 3 characters, the API will only return routes)
+        
+        Optional Parameters
+        -------------------
+        route_types : Array[int]
+            Filter by route_type; values returned via RouteTypes API (note: stops and routes are ordered by route_types specified)
+        latitude : float
+            Filter by geographic coordinate of latitude
+        longitude : float
+            Filter by geographic coordinate of longitude
+        max_distance : float
+            Filter by maximum distance (in metres) from location specified via latitude and longitude parameters
+        include_addresses : bool
+            Placeholder for future development; currently unavailable
+        include_outlets : bool
+            Indicates if outlets will be returned in response (default = true)
+        match_stop_by_suburb : bool
+            Indicates whether to find stops by suburbs in the search term (default = true)
+        match_route_by_suburb : bool
+            Indicates whether to find routes by suburbs in the search term (default = true)
+        match_stop_by_gtfs_stop_id : bool
+            Indicates whether to search for stops according to a metlink stop ID (default = false)
+        
+        Returns
+        -------
+        SearchResponse : dict
+            Stops, routes and myki ticket outlets that contain the search term (note: stops and routes are ordered by route_type by default).
+        """
+        path = "/v3/search/{}"
+        path.format(search_term)
+        params = {}
+        if route_types:
+            params['route_types'] = route_types
+        if latitude:
+            params['latitude'] = latitude
+        if longitude:
+            params['longitude'] = longitude
+        if max_distance:
+            params['max_distance'] = max_distance
+        if include_addresses != None:
+            params['include_addresses'] = str(include_addresses).lower()
+        if include_outlets != None:
+            params['include_outlets'] = str(include_outlets).lower()
+        if match_stop_by_suburb != None:
+            params['match_stop_by_suburb'] = str(match_stop_by_suburb).lower()
+        if match_route_by_suburb != None:
+            params['match_route_by_suburb'] = str(match_route_by_suburb).lower()
+        if match_stop_by_gtfs_stop_id != None:
+            params['match_stop_by_gtfs_stop_id'] = str(match_stop_by_gtfs_stop_id).lower()
+        return self._callApi(path, params)
+        

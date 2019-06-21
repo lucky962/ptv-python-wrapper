@@ -294,6 +294,45 @@ Example
 client.get_runs_for_route(1)
 ```
 
+### View stops, routes and myki outlets that match the search term
+View stops, routes and myki outlets that match the search term
+```
+Parameters
+----------
+search_term : str
+    Search text (note: if search text is numeric and/or less than 3 characters, the API will only return routes)
+
+Optional Parameters
+-------------------
+route_types : Array[int]
+    Filter by route_type; values returned via RouteTypes API (note: stops and routes are ordered by route_types specified)
+latitude : float
+    Filter by geographic coordinate of latitude
+longitude : float
+    Filter by geographic coordinate of longitude
+max_distance : float
+    Filter by maximum distance (in metres) from location specified via latitude and longitude parameters
+include_addresses : bool
+    Placeholder for future development; currently unavailable
+include_outlets : bool
+    Indicates if outlets will be returned in response (default = true)
+match_stop_by_suburb : bool
+    Indicates whether to find stops by suburbs in the search term (default = true)
+match_route_by_suburb : bool
+    Indicates whether to find routes by suburbs in the search term (default = true)
+match_stop_by_gtfs_stop_id : bool
+    Indicates whether to search for stops according to a metlink stop ID (default = false)
+
+Returns
+-------
+SearchResponse : dict
+    Stops, routes and myki ticket outlets that contain the search term (note: stops and routes are ordered by route_type by default).
+```
+Example
+```
+client.search('asdf')
+```
+
 ## Progress
 This is a work-in-progress api wrapper
 
@@ -331,8 +370,8 @@ The things we are working on:
     - [x] View all trip/service runs for a specific route ID and route type
     - [x] View all trip/service runs for a specific run ID
     - [x] View the trip/service runs for a specific run ID and route type
-- [ ] Search
-    - [ ] View stops, routes and myki ticket outlets that match the search term
+- [x] Search
+    - [x] View stops, routes and myki ticket outlets that match the search term
 - [ ] Stops
     - [ ] View facilities at a specific stop (Metro and V/Line stations only)
     - [ ] View all stops on a specific route
