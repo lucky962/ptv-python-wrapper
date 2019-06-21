@@ -1,6 +1,45 @@
 # ptv-python-wrapper
 A python API Wrapper for Public Transport Victoria (PTV)
 
+## Usage
+###### Get Departures from Stop
+View departures from a stop
+```
+Parameters
+----------
+route_type : integer
+    Number identifying transport mode; values returned via RouteTypes API
+stop_id : integer
+    Identifier of stop; values returned by Stops API
+
+Optional Parameters
+-------------------
+route_id : string
+    Identifier of route; values returned by RoutesAPI - v3/routes
+platform_numbers : Array[integer]
+    Filter by platform number at stop
+direction_id : integer
+    Filter by indentifier of direction of travel; values returned by Directions Api - /v3/directions/route/{route_id}
+look_backwards : boolean
+    Indicates if filtering runs (and their departures) to those that arrive at destination before date_utc (default = false). Requires max_results > 0.
+gtfs : boolean
+    Indicates that stop_id parameter will accept "GTFS stop_id" data
+date_utc : string
+    Filter by the date and time of the request (ISO 8601 UTC format) (default = current date and time)
+max_results : integer
+    Maximum number of results returned
+include_cancelled : boolean
+    Indicates if cancelled services (if they exist) are returned (default = false) - metropolitan train only
+expand : Array[string]
+    List objects to be returned in full (i.e. expanded) - options include: all, stop, route, run, direction, disruption
+
+Returns
+-------
+Departures : dict
+    Dictionary of departures
+```
+
+## Progress
 This is a work-in-progress api wrapper
 
 The things we are working on:
