@@ -43,3 +43,5 @@ The things we are working on:
     - [ ] View facilities at a specific stop (Metro and V/Line stations only)
     - [ ] View all stops on a specific route
     - [ ] View all stops near a specific location
+- [ ] Other
+    - [ ] Documentation
