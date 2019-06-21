@@ -196,6 +196,25 @@ Example
 ```
 client.get(12345, 0, ['all'])
 ```
+### View route names and numbers for all routes
+View route names and numbers for all routes
+```
+Optional Parameters
+-------------------
+route_types : Array[int]
+    Filter by route_type; values returned via RouteTypes API
+route_name : str
+    Filter by name of route (accepts partial route name matches)
+
+Returns
+-------
+routes : dict
+    Route names and numbers for all routes of all route types.
+```
+Example
+```
+client.get_routes()
+```
 
 ## Progress
 This is a work-in-progress api wrapper
@@ -224,8 +243,8 @@ The things we are working on:
     - [x] List ticket outlets near a specific location
 - [x] Patterns
     - [x] View the stopping pattern for a specific trip/service run
-- [ ] Routes
-    - [ ] View route names and numbers for all routes
+- [x] Routes
+    - [x] View route names and numbers for all routes
     - [ ] View route name and number for specific route ID
 - [ ] RouteTypes
     - [ ] View all route types and their names
