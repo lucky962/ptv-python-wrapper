@@ -372,6 +372,33 @@ Example
 client.get_stop(1071, 0)
 ```
 
+### View all stops on a specific route
+View all stops on a specific route
+```
+Parameters
+----------
+route_id : int
+    Identifier of route; values returned by Routes API - v3/routes
+route_type : int
+    Number identifying transport mode; values returned via RouteTypes API
+
+Optional Parameters
+-------------------
+direction_id : int
+    An optional direction; values returned by Directions API. When this is set, stop sequence information is returned in the response.
+stop_disruptions : bool
+    Indicates if stop disruption information will be returned (default = false)
+
+Returns
+-------
+stops : dict
+    All stops on the specified route.
+```
+Example
+```
+client.get_stops_for_route(1, 0)
+```
+
 ## Progress
 This is a work-in-progress api wrapper
 
@@ -413,7 +440,7 @@ The things we are working on:
     - [x] View stops, routes and myki ticket outlets that match the search term
 - [x] Stops
     - [x] View facilities at a specific stop (Metro and V/Line stations only)
-    - [ ] View all stops on a specific route
+    - [x] View all stops on a specific route
     - [ ] View all stops near a specific location
 - [ ] Other
     - [ ] Setup.py

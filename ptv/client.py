@@ -516,19 +516,51 @@ class PTVClient(object):
         path.format(stop_id, route_type)
         params = {}
         if stop_location != None:
-            params['stop_location'] = stop_location
+            params['stop_location'] = str(stop_location).lower()
         if stop_amenities != None:
-            params['stop_amenities'] = stop_amenities
+            params['stop_amenities'] = str(stop_amenities).lower()
         if stop_accessibility != None:
-            params['stop_accessibility'] = stop_accessibility
+            params['stop_accessibility'] = str(stop_accessibility).lower()
         if stop_contact != None:
-            params['stop_contact'] = stop_contact
+            params['stop_contact'] = str(stop_contact).lower()
         if stop_ticket != None:
-            params['stop_ticket'] = stop_ticket
+            params['stop_ticket'] = str(stop_ticket).lower()
         if gtfs != None:
-            params['gtfs'] = gtfs
+            params['gtfs'] = str(gtfs).lower()
         if stop_staffing != None:
-            params['stop_staffing'] = stop_staffing
+            params['stop_staffing'] = str(stop_staffing).lower()
         if stop_disruptions != None:
-            params['stop_disruptions'] = stop_disruptions
+            params['stop_disruptions'] = str(stop_disruptions).lower()
+        return self._callApi(path, params)
+
+    def get_stops_for_route(self, route_id, route_type, direction_id=None, stop_disruptions=None):
+        """
+        View all stops on a specific route
+
+        Parameters
+        ----------
+        route_id : int
+            Identifier of route; values returned by Routes API - v3/routes
+        route_type : int
+            Number identifying transport mode; values returned via RouteTypes API
+
+        Optional Parameters
+        -------------------
+        direction_id : int
+            An optional direction; values returned by Directions API. When this is set, stop sequence information is returned in the response.
+        stop_disruptions : bool
+            Indicates if stop disruption information will be returned (default = false)
+
+        Returns
+        -------
+        stops : dict
+            All stops on the specified route.
+        """
+        path = "/v3/stops/route/{}/route_type/{}"
+        path.format(route_id, route_type)
+        params = {}
+        if direction_id: 
+            params['direction_id'] = direction_id
+        if stop_disruptions:
+            params['stop_disruptions'] = str(stop_disruptions).lower()
         return self._callApi(path, params)
