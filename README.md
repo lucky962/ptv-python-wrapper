@@ -144,12 +144,18 @@ Example
 client.get_disruption_modes()
 ```
 
-### List all ticket outlets
-List all ticket outlets
+### List ticket outlets
+List ticket outlets
 ```
 Optional Parameters
 -------------------
-max_results : integer
+latitude : int
+    Geographic coordinate of latitude
+longitude : int
+    Geographic coordinate of longitude
+max_distance : int
+    Maximum number of results returned 
+max_results : int
     Maximum number of results returned (default = 30)
 
 Returns
@@ -184,9 +190,9 @@ The things we are working on:
     - [x] View all disruptions for a particular stop
     - [x] View a specific disruption
     - [x] Get all disruptions modes
-- [ ] Outlets
+- [x] Outlets
     - [x] List all ticket outlets
-    - [ ] List ticket outlets near a specific location
+    - [x] List ticket outlets near a specific location
 - [ ] Patterns
     - [ ] View the stopping pattern for a specific trip/service run
 - [ ] Routes

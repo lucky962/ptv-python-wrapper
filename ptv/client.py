@@ -246,13 +246,19 @@ class PTVClient(object):
         params = {}
         return self._callApi(path, params)
     
-    def get_outlets(self, max_results = None):
+    def get_outlets(self, latitude=None, longitude=None, max_distance=None, max_results=None):
         """
         List all ticket outlets
 
         Optional Parameters
         -------------------
-        max_results : integer
+        latitude : int
+            Geographic coordinate of latitude
+        longitude : int
+            Geographic coordinate of longitude
+        max_distance : int
+            Maximum number of results returned 
+        max_results : int
             Maximum number of results returned (default = 30)
         
         Returns
@@ -262,6 +268,10 @@ class PTVClient(object):
         """
         path = "/v3/outlets"
         params = {}
+        if latitude and longitude:
+            path += f"/location/{latitude},{longitude}"
+        if max_distance:
+            params['max_distance'] = max_distance
         if max_results:
             params['max_results'] = max_results
         return self._callApi(path, params)
