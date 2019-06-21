@@ -168,6 +168,35 @@ Example
 client.get_outlets()
 ```
 
+### View the stopping pattern for a specific trip/service run
+View the stopping pattern for a specific trip/service run
+```
+Parameters
+----------
+run_id : int
+    Identifier of a trip/service run; values returned by Runs API - /v3/route/{route_id} and Departures API
+route_type : int
+    Number identifying transport mode; values returned via RouteTypes API
+expand : Array[str]
+    Objects to be returned in full (i.e. expanded) - options include: all, stop, route, run, direction, disruption. By default disruptions are expanded.
+
+Optional Parameters
+-------------------
+stop_id : int
+    Filter by stop_id; values returned by Stops API
+date_utc : str
+    Filter by the date and time of the request (ISO 8601 UTC format)
+
+Returns
+-------
+pattern : dict
+    The stopping pattern of the specified trip/service run and route type.
+```
+Example
+```
+client.get(12345, 0, ['all'])
+```
+
 ## Progress
 This is a work-in-progress api wrapper
 
@@ -193,8 +222,8 @@ The things we are working on:
 - [x] Outlets
     - [x] List all ticket outlets
     - [x] List ticket outlets near a specific location
-- [ ] Patterns
-    - [ ] View the stopping pattern for a specific trip/service run
+- [x] Patterns
+    - [x] View the stopping pattern for a specific trip/service run
 - [ ] Routes
     - [ ] View route names and numbers for all routes
     - [ ] View route name and number for specific route ID

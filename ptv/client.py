@@ -275,3 +275,39 @@ class PTVClient(object):
         if max_results:
             params['max_results'] = max_results
         return self._callApi(path, params)
+
+    def get_pattern(self, run_id, route_type, expand, stop_id=None, date_utc=None):
+        """
+        View the stopping pattern for a specific trip/service run
+
+        Parameters
+        ----------
+        run_id : int
+            Identifier of a trip/service run; values returned by Runs API - /v3/route/{route_id} and Departures API
+        route_type : int
+            Number identifying transport mode; values returned via RouteTypes API
+        expand : Array[str]
+            Objects to be returned in full (i.e. expanded) - options include: all, stop, route, run, direction, disruption. By default disruptions are expanded.
+        
+        Optional Parameters
+        -------------------
+        stop_id : int
+            Filter by stop_id; values returned by Stops API
+        date_utc : str
+            Filter by the date and time of the request (ISO 8601 UTC format)
+
+        Returns
+        -------
+        pattern : dict
+            The stopping pattern of the specified trip/service run and route type.
+        """
+        path = "/v3/pattern/run/{}/route_type/{}"
+        path.format(run_id, route_type)
+        params = {}
+        params['expand'] = expand
+        if stop_id:
+            params['stop_id'] = stop_id
+        if date_utc:
+            params['date_utc'] = date_utc
+        return self._callApi(path, params)
+        
