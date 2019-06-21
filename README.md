@@ -333,6 +333,45 @@ Example
 client.search('asdf')
 ```
 
+### View facilities at a specific stop (Metro and V/Line stations only)
+View facilities at a specific stop (Metro and V/Line stations only)
+```
+Parameters
+----------
+stop_id : int
+    Identifier of stop; values returned by Stops API
+route_type : int
+    Number identifying transport mode; values returned via RouteTypes API
+
+Optional Parameters
+-------------------
+stop_location : bool
+    Indicates if stop location information will be returned (default = false)
+stop_amenities : bool  
+    Indicates if stop amenity information will be returned (default = false)
+stop_accessibility : bool
+    Indicates if stop accessibility information will be returned (default = false)
+stop_contact : bool
+    Indicates if stop contact information will be returned (default = false)
+stop_ticket : bool
+    Indicates if stop ticket information will be returned (default = false)
+gtfs : bool
+    Incdicates whether the stop_id is a GTFS ID or not
+stop_staffing : bool
+    Indicates if stop staffing information will be returned (default = false)
+stop_disruptions : bool
+    Indicates if stop disruption information will be returned (default = false)
+
+Returns
+-------
+Stop : dict
+    Stop location, amenity and accessibility facility information for the specified stop (metropolitan and V/Line stations only).
+```
+Example
+```
+client.get_stop(1071, 0)
+```
+
 ## Progress
 This is a work-in-progress api wrapper
 
@@ -372,8 +411,8 @@ The things we are working on:
     - [x] View the trip/service runs for a specific run ID and route type
 - [x] Search
     - [x] View stops, routes and myki ticket outlets that match the search term
-- [ ] Stops
-    - [ ] View facilities at a specific stop (Metro and V/Line stations only)
+- [x] Stops
+    - [x] View facilities at a specific stop (Metro and V/Line stations only)
     - [ ] View all stops on a specific route
     - [ ] View all stops near a specific location
 - [ ] Other

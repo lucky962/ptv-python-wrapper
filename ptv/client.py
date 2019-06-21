@@ -476,4 +476,59 @@ class PTVClient(object):
         if match_stop_by_gtfs_stop_id != None:
             params['match_stop_by_gtfs_stop_id'] = str(match_stop_by_gtfs_stop_id).lower()
         return self._callApi(path, params)
-        
+
+    def get_stop(self, stop_id, route_type, stop_location=None, stop_amenities=None, stop_accessibility=None, stop_contact=None, stop_ticket=None, gtfs=None, stop_staffing=None, stop_disruptions=None):
+        """
+        View facilities at a specific stop (Metro and V/Line stations only)
+
+        Parameters
+        ----------
+        stop_id : int
+            Identifier of stop; values returned by Stops API
+        route_type : int
+            Number identifying transport mode; values returned via RouteTypes API
+
+        Optional Parameters
+        -------------------
+        stop_location : bool
+            Indicates if stop location information will be returned (default = false)
+        stop_amenities : bool  
+            Indicates if stop amenity information will be returned (default = false)
+        stop_accessibility : bool
+            Indicates if stop accessibility information will be returned (default = false)
+        stop_contact : bool
+            Indicates if stop contact information will be returned (default = false)
+        stop_ticket : bool
+            Indicates if stop ticket information will be returned (default = false)
+        gtfs : bool
+            Incdicates whether the stop_id is a GTFS ID or not
+        stop_staffing : bool
+            Indicates if stop staffing information will be returned (default = false)
+        stop_disruptions : bool
+            Indicates if stop disruption information will be returned (default = false)
+
+        Returns
+        -------
+        Stop : dict
+            Stop location, amenity and accessibility facility information for the specified stop (metropolitan and V/Line stations only).
+        """
+        path = "/v3/stops/{}/route_type/{}"
+        path.format(stop_id, route_type)
+        params = {}
+        if stop_location != None:
+            params['stop_location'] = stop_location
+        if stop_amenities != None:
+            params['stop_amenities'] = stop_amenities
+        if stop_accessibility != None:
+            params['stop_accessibility'] = stop_accessibility
+        if stop_contact != None:
+            params['stop_contact'] = stop_contact
+        if stop_ticket != None:
+            params['stop_ticket'] = stop_ticket
+        if gtfs != None:
+            params['gtfs'] = gtfs
+        if stop_staffing != None:
+            params['stop_staffing'] = stop_staffing
+        if stop_disruptions != None:
+            params['stop_disruptions'] = stop_disruptions
+        return self._callApi(path, params)
