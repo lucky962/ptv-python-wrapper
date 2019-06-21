@@ -8,9 +8,9 @@ The things we are working on:
     - [x] Calculate Signature
     - [x] Get Url
     - [x] Call Api
-- [ ] Departures
-    - [ ] View departures for all routes from a stop
-    - [ ] View departures for a specific route from a stop
+- [x] Departures
+    - [x] View departures for all routes from a stop
+    - [x] View departures for a specific route from a stop
 - [ ] Directions
     - [ ] View directions that a route travels in
     - [ ] View all routes for a directino of travel
