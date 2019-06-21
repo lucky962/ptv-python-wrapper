@@ -268,7 +268,30 @@ run : dict
 ```
 Example
 ```
-client.get_runs(12345, 0)
+client.get_run(12345, 0)
+```
+
+### View all trip/service runs for a specific route ID
+View all trip/service runs for a specific route ID
+```
+Parameters
+----------
+route_id : int
+    Identifier of route; values returned by Routes API - v3/routes.
+
+Optional Parameters
+-------------------
+route_type : int
+    Number identifying transport mode; values returned via RouteTypes API
+
+Returns
+-------
+runs : dict
+    All trip/service run details for the specified route ID.
+```
+Example
+```
+client.get_runs_for_route(1)
 ```
 
 ## Progress
@@ -315,5 +338,6 @@ The things we are working on:
     - [ ] View all stops on a specific route
     - [ ] View all stops near a specific location
 - [ ] Other
+    - [ ] Setup.py
     - [ ] Documentation
     
