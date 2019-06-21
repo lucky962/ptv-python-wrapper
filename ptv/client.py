@@ -334,3 +334,22 @@ class PTVClient(object):
         if route_name:
             params['route_name'] = route_name
         return self._callApi(path, params)
+
+    def get_route(self, route_id):
+        """
+        View route name and number for specific route ID
+
+        Parameters
+        ----------
+        route_id : int
+            Identifier of route; values returned by Departures, Directions and Disruptions APIs
+        
+        Returns
+        -------
+        route : dict
+            The route name and number for the specified route ID.
+        """
+        path = "/v3/routes/{}"
+        path.format(route_id)
+        params = {}
+        return self._callApi(path, params)

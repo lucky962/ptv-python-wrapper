@@ -196,6 +196,7 @@ Example
 ```
 client.get(12345, 0, ['all'])
 ```
+
 ### View route names and numbers for all routes
 View route names and numbers for all routes
 ```
@@ -214,6 +215,24 @@ routes : dict
 Example
 ```
 client.get_routes()
+```
+
+### View route name and number for specific route ID
+View route name and number for specific route ID
+```
+Parameters
+----------
+route_id : int
+    Identifier of route; values returned by Departures, Directions and Disruptions APIs
+
+Returns
+-------
+route : dict
+    The route name and number for the specified route ID.
+```
+Example
+```
+client.get_route(1)
 ```
 
 ## Progress
@@ -245,7 +264,7 @@ The things we are working on:
     - [x] View the stopping pattern for a specific trip/service run
 - [x] Routes
     - [x] View route names and numbers for all routes
-    - [ ] View route name and number for specific route ID
+    - [x] View route name and number for specific route ID
 - [ ] RouteTypes
     - [ ] View all route types and their names
 - [ ] Runs
