@@ -235,6 +235,19 @@ Example
 client.get_route(1)
 ```
 
+### View all route types and their names
+View all route types and their names
+```
+Returns
+-------
+RouteTypes : dict
+    All route types (i.e. identifiers of transport modes) and their names.
+```
+Example
+```
+client.get_route_types()
+```
+
 ## Progress
 This is a work-in-progress api wrapper
 
@@ -265,8 +278,8 @@ The things we are working on:
 - [x] Routes
     - [x] View route names and numbers for all routes
     - [x] View route name and number for specific route ID
-- [ ] RouteTypes
-    - [ ] View all route types and their names
+- [x] RouteTypes
+    - [x] View all route types and their names
 - [ ] Runs
     - [ ] View all trip/service runs for a specific route ID
     - [ ] View all trip/service runs for a specific route ID and route type
