@@ -310,4 +310,46 @@ class PTVClient(object):
         if date_utc:
             params['date_utc'] = date_utc
         return self._callApi(path, params)
+    
+    def get_routes(self, route_types=None, route_name=None):
+        """
+        View route names and numbers for all routes
+
+        Optional Parameters
+        -------------------
+        route_types : Array[int]
+            Filter by route_type; values returned via RouteTypes API
+        route_name : str
+            Filter by name of route (accepts partial route name matches)
         
+        Returns
+        -------
+        routes : dict
+            Route names and numbers for all routes of all route types.
+        """
+        path = "/v3/routes"
+        params = {}
+        if route_types:
+            params['route_types'] = route_types
+        if route_name:
+            params['route_name'] = route_name
+        return self._callApi(path, params)
+
+    def get_route(self, route_id):
+        """
+        View route name and number for specific route ID
+
+        Parameters
+        ----------
+        route_id : int
+            Identifier of route; values returned by Departures, Directions and Disruptions APIs
+        
+        Returns
+        -------
+        route : dict
+            The route name and number for the specified route ID.
+        """
+        path = "/v3/routes/{}"
+        path.format(route_id)
+        params = {}
+        return self._callApi(path, params)
