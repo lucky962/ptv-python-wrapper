@@ -99,7 +99,7 @@ The things we are working on:
     - [x] View departures for a specific route from a stop
 - [ ] Directions
     - [x] View directions that a route travels in
-    - [ ] View all routes for a directino of travel
+    - [x] View all routes for a directino of travel
     - [ ] View all routes of a particular type for a direction of travel
 - [ ] Disruptions
     - [ ] View all disruptions for all route types
