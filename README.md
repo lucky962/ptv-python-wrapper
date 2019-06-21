@@ -144,7 +144,7 @@ Example
 client.get_disruption_modes()
 ```
 
-###List all ticket outlets
+### List all ticket outlets
 List all ticket outlets
 ```
 Optional Parameters
