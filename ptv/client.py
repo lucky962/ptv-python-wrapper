@@ -366,4 +366,29 @@ class PTVClient(object):
         path = "/v3/route_types"
         params = {}
         return self._callApi(path, params)
-        
+    
+    def get_runs(self, run_id, route_type=None):
+        """
+        View the trip/service for a specific run ID and route type
+
+        Parameters
+        ----------
+        run_id : int
+            Identifier of a trip/service run; values returned by Runs API - /v3/route/{route_id} and Departures API
+
+        Optional Parameters
+        -------------------
+        route_type : int
+            Number identifying transport mode; values returned via RouteTypes API
+
+        Returns
+        -------
+        run : dict
+            The trip/service run details for the run ID and route type specified.
+        """
+        path = "/v3/runs/{}"
+        path.format(run_id)
+        params = {}
+        if route_type:
+            path += f"/route_type/{route_type}"
+        return self._callApi(path, params)

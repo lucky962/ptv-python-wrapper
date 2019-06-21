@@ -248,6 +248,29 @@ Example
 client.get_route_types()
 ```
 
+### View the trip/service for a specific run ID and route type
+View the trip/service for a specific run ID and route type
+```
+Parameters
+----------
+run_id : int
+    Identifier of a trip/service run; values returned by Runs API - /v3/route/{route_id} and Departures API
+
+Optional Parameters
+-------------------
+route_type : int
+    Number identifying transport mode; values returned via RouteTypes API
+
+Returns
+-------
+run : dict
+    The trip/service run details for the run ID and route type specified.
+```
+Example
+```
+client.get_runs(12345, 0)
+```
+
 ## Progress
 This is a work-in-progress api wrapper
 
@@ -280,11 +303,11 @@ The things we are working on:
     - [x] View route name and number for specific route ID
 - [x] RouteTypes
     - [x] View all route types and their names
-- [ ] Runs
+- [x] Runs
     - [ ] View all trip/service runs for a specific route ID
     - [ ] View all trip/service runs for a specific route ID and route type
-    - [ ] View all trip/service runs for a specific run ID
-    - [ ] View the trip/service runs for a specific run ID and route type
+    - [x] View all trip/service runs for a specific run ID
+    - [x] View the trip/service runs for a specific run ID and route type
 - [ ] Search
     - [ ] View stops, routes and myki ticket outlets that match the search term
 - [ ] Stops
