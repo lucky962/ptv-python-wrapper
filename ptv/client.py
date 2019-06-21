@@ -56,9 +56,9 @@ class PTVClient(object):
         url : str
             The url for the request
         """
-        params['dev_id'] = self.dev_id
+        params['devid'] = self.dev_id
         query = "?" + urllib.parse.urlencode(params,doseq=True)
-        url = BASE_URL + path + query + "$signature=" + self._calculateSignature(path + query)
+        url = BASE_URL + path + query + "&signature=" + self._calculateSignature(path + query)
         return url
         
     def _callApi(self, path, params = {}): 
@@ -81,7 +81,7 @@ class PTVClient(object):
         response.raise_for_status()
         return response.json()
     
-    def get_departures_from_stop(self, route_type, stop_id, route_id=None, platform_numbers=None, direction_id=None, direction_id=None, look_backwards=None, gtfs=None, date_utc=None, max_results=None, include_cancelled = None, expand = None):
+    def get_departures_from_stop(self, route_type, stop_id, route_id=None, platform_numbers=None, direction_id=None, look_backwards=None, gtfs=None, date_utc=None, max_results=None, include_cancelled = None, expand = None):
         """
         View departures from a stop
 
@@ -140,4 +140,3 @@ class PTVClient(object):
         if expand:
             params['expand'] = str(expand).lower()
         return self._callApi(path, params)
-        
