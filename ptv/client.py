@@ -213,3 +213,23 @@ class PTVClient(object):
         if disruption_status:
             params['disruption_status'] = disruption_status
         return self._callApi(path, params)
+
+    def get_disruption(self, disruption_id):
+        """
+        View a specific disruption
+
+        Parameters
+        ----------
+        disruption_id : int
+            Identifier of disruption; values returned by Disruptions API - /v3/disruptions OR /v3/disruptions/route/{route_id}
+        
+        Returns
+        -------
+        disruptions : dict
+            Disruption information for the specified disruption ID.
+        """
+        path = "/v3/disruptions{}"
+        path.format(disruption_id)
+        params = {}
+        return self._callApi(path, params)
+        

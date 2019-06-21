@@ -113,6 +113,24 @@ Example
 client.get_disruptions()
 ```
 
+### View a specific disruption
+View a specific disruption
+```
+Parameters
+----------
+disruption_id : int
+    Identifier of disruption; values returned by Disruptions API - /v3/disruptions OR /v3/disruptions/route/{route_id}
+
+Returns
+-------
+disruptions : dict
+    Disruption information for the specified disruption ID.
+```
+Example
+```
+client.get_disruption(12345)
+```
+
 ## Progress
 This is a work-in-progress api wrapper
 
@@ -133,7 +151,7 @@ The things we are working on:
     - [x] View all disruptions for a particular route
     - [x] View all disruptions for a particular route and stop
     - [x] View all disruptions for a particular stop
-    - [ ] View a specific disruption
+    - [x] View a specific disruption
     - [ ] Get all disruptions modes
 - [ ] Outlets
     - [ ] List all ticket outlets
