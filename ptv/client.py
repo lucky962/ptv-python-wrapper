@@ -199,7 +199,9 @@ class PTVClient(object):
         disruption_status : str
             Filter by status of disruption
         
-        Returns : dict
+        Returns
+        -------
+        disruptions : dict
             All disruption information (if any exists).
         """
         path = "/v3/disruptions"
