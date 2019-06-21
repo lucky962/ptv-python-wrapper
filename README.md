@@ -4,6 +4,10 @@ A python API Wrapper for Public Transport Victoria (PTV)
 This is a work-in-progress api wrapper
 
 The things we are working on:
+- [x] Api Calling
+    - [x] Calculate Signature
+    - [x] Get Url
+    - [x] Call Api
 - [ ] Departures
     - [ ] View departures for all routes from a stop
     - [ ] View departures for a specific route from a stop
