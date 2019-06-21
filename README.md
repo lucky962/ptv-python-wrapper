@@ -86,9 +86,61 @@ Returns
 Routes : dict
     All routes that travel in the specified direction.
 ```
-Example;
+Example:
 ```
 client.get_route_for_direction(1)
+```
+
+### Get Disruptions
+View all disruptions
+```
+Optional Parameters
+-------------------
+route_id : int
+    Identifier of route; values returned by Routes API - v3/routes
+stop_id : int            	
+    Identifier of stop; values returned by Stops API - v3/stops
+disruption_status : str
+    Filter by status of disruption
+
+Returns
+-------
+disruptions : dict
+    All disruption information (if any exists).
+```
+Example
+```
+client.get_disruptions()
+```
+
+### View a specific disruption
+View a specific disruption
+```
+Parameters
+----------
+disruption_id : int
+    Identifier of disruption; values returned by Disruptions API - /v3/disruptions OR /v3/disruptions/route/{route_id}
+
+Returns
+-------
+disruptions : dict
+    Disruption information for the specified disruption ID.
+```
+Example
+```
+client.get_disruption(12345)
+```
+### Get all disruption modes
+Get all disruption modes
+```
+Returns
+-------
+modes : dict
+    Disruption specific modes
+```
+Example
+```
+client.get_disruption_modes()
 ```
 
 ## Progress
@@ -106,13 +158,13 @@ The things we are working on:
     - [x] View directions that a route travels in
     - [x] View all routes for a directino of travel
     - [x] View all routes of a particular type for a direction of travel
-- [ ] Disruptions
-    - [ ] View all disruptions for all route types
-    - [ ] View all disruptions for a particular route
-    - [ ] View all disruptions for a particular route and stop
-    - [ ] View all disruptions for a particular stop
-    - [ ] View a specific disruption
-    - [ ] Get all disruptions modes
+- [x] Disruptions
+    - [x] View all disruptions for all route types
+    - [x] View all disruptions for a particular route
+    - [x] View all disruptions for a particular route and stop
+    - [x] View all disruptions for a particular stop
+    - [x] View a specific disruption
+    - [x] Get all disruptions modes
 - [ ] Outlets
     - [ ] List all ticket outlets
     - [ ] List ticket outlets near a specific location
