@@ -130,6 +130,18 @@ Example
 ```
 client.get_disruption(12345)
 ```
+###Get all disruption modes
+Get all disruption modes
+```
+Returns
+-------
+modes : dict
+    Disruption specific modes
+```
+Example
+```
+client.get_disruption_modes()
+```
 
 ## Progress
 This is a work-in-progress api wrapper
@@ -146,13 +158,13 @@ The things we are working on:
     - [x] View directions that a route travels in
     - [x] View all routes for a directino of travel
     - [x] View all routes of a particular type for a direction of travel
-- [ ] Disruptions
+- [x] Disruptions
     - [x] View all disruptions for all route types
     - [x] View all disruptions for a particular route
     - [x] View all disruptions for a particular route and stop
     - [x] View all disruptions for a particular stop
     - [x] View a specific disruption
-    - [ ] Get all disruptions modes
+    - [x] Get all disruptions modes
 - [ ] Outlets
     - [ ] List all ticket outlets
     - [ ] List ticket outlets near a specific location

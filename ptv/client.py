@@ -232,4 +232,16 @@ class PTVClient(object):
         path.format(disruption_id)
         params = {}
         return self._callApi(path, params)
-        
+
+    def get_disruption_modes(self):
+        """
+        Get all disruption modes
+
+        Returns
+        -------
+        modes : dict
+            Disruption specific modes
+        """
+        path = "/v3/disruptions/modes"
+        params = {}
+        return self._callApi(path, params)
