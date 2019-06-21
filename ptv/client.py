@@ -185,4 +185,29 @@ class PTVClient(object):
         path = path.format(direction_id)
         params = {}
         return self._callApi(path, params)
+    
+    def get_disruptions(self, route_id=None, stop_id=None, disruption_status=None):
+        """
+        View all disruptions
         
+        Optional Parameters
+        -------------------
+        route_id : int
+            Identifier of route; values returned by Routes API - v3/routes
+        stop_id : int            	
+            Identifier of stop; values returned by Stops API - v3/stops
+        disruption_status : str
+            Filter by status of disruption
+        
+        Returns : dict
+            All disruption information (if any exists).
+        """
+        path = "/v3/disruptions"
+        params = {}
+        if route_id:
+            path += f"/route_id/{route_id}"
+        if stop_id:
+            path += f"/stop_id/{stop_id}"
+        if disruption_status:
+            params['disruption_status'] = disruption_status
+        return self._callApi(path, params)

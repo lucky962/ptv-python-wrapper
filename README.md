@@ -86,9 +86,29 @@ Returns
 Routes : dict
     All routes that travel in the specified direction.
 ```
-Example;
+Example:
 ```
 client.get_route_for_direction(1)
+```
+
+### Get Disruptions
+View all disruptions
+```
+Optional Parameters
+-------------------
+route_id : int
+    Identifier of route; values returned by Routes API - v3/routes
+stop_id : int            	
+    Identifier of stop; values returned by Stops API - v3/stops
+disruption_status : str
+    Filter by status of disruption
+
+Returns : dict
+    All disruption information (if any exists).
+```
+Example
+```
+client.get_disruptions()
 ```
 
 ## Progress
@@ -107,10 +127,10 @@ The things we are working on:
     - [x] View all routes for a directino of travel
     - [x] View all routes of a particular type for a direction of travel
 - [ ] Disruptions
-    - [ ] View all disruptions for all route types
-    - [ ] View all disruptions for a particular route
-    - [ ] View all disruptions for a particular route and stop
-    - [ ] View all disruptions for a particular stop
+    - [x] View all disruptions for all route types
+    - [x] View all disruptions for a particular route
+    - [x] View all disruptions for a particular route and stop
+    - [x] View all disruptions for a particular stop
     - [ ] View a specific disruption
     - [ ] Get all disruptions modes
 - [ ] Outlets
