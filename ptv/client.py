@@ -141,7 +141,7 @@ class PTVClient(object):
             params['expand'] = str(expand).lower()
         return self._callApi(path, params)
 
-    def get_direction_for_route(self, route_id):
+    def get_direction_for_route(self, route_id, route_type=None):
         """
         View directions for route
 
@@ -150,6 +150,11 @@ class PTVClient(object):
         route_id : int
             Identifier of route; values returned by Routes API - v3/routes
         
+        Optional Parameters
+        -------------------
+        route_type : int
+            Number identifying transport mode; values returned via RouteTypes API
+
         Returns
         -------
         Directions : dict
@@ -158,6 +163,8 @@ class PTVClient(object):
         path = "/v3/directions/route/{}"
         path = path.format(route_id)
         params = {}
+        if route_type:
+            path += f"/route_type/{route_type}"
         return self._callApi(path, params)
 
     def get_route_for_direction(self, direction_id):

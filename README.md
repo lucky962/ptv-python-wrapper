@@ -57,6 +57,11 @@ Parameters
 ----------
 route_id : int
     Identifier of route; values returned by Routes API - v3/routes
+        
+Optional Parameters
+-------------------
+route_type : int
+    Number identifying transport mode; values returned via RouteTypes API
 
 Returns
 -------
@@ -97,10 +102,10 @@ The things we are working on:
 - [x] Departures
     - [x] View departures for all routes from a stop
     - [x] View departures for a specific route from a stop
-- [ ] Directions
+- [x] Directions
     - [x] View directions that a route travels in
     - [x] View all routes for a directino of travel
-    - [ ] View all routes of a particular type for a direction of travel
+    - [x] View all routes of a particular type for a direction of travel
 - [ ] Disruptions
     - [ ] View all disruptions for all route types
     - [ ] View all disruptions for a particular route
