@@ -2,7 +2,7 @@
 A python API Wrapper for Public Transport Victoria (PTV)
 
 ## Usage
-###### Get Departures from Stop
+### Get Departures from Stop
 View departures from a stop
 ```
 Parameters
