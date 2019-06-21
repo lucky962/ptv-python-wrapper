@@ -130,6 +130,7 @@ Example
 ```
 client.get_disruption(12345)
 ```
+
 ### Get all disruption modes
 Get all disruption modes
 ```
@@ -141,6 +142,24 @@ modes : dict
 Example
 ```
 client.get_disruption_modes()
+```
+
+###List all ticket outlets
+List all ticket outlets
+```
+Optional Parameters
+-------------------
+max_results : integer
+    Maximum number of results returned (default = 30)
+
+Returns
+-------
+outlets : dict
+    Ticket outlets
+```
+Example
+```
+client.get_outlets()
 ```
 
 ## Progress

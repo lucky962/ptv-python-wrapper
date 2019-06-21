@@ -245,3 +245,23 @@ class PTVClient(object):
         path = "/v3/disruptions/modes"
         params = {}
         return self._callApi(path, params)
+    
+    def get_outlets(self, max_results = None):
+        """
+        List all ticket outlets
+
+        Optional Parameters
+        -------------------
+        max_results : integer
+            Maximum number of results returned (default = 30)
+        
+        Returns
+        -------
+        outlets : dict
+            Ticket outlets
+        """
+        path = "/v3/outlets"
+        params = {}
+        if max_results:
+            params['max_results'] = max_results
+        return self._callApi(path, params)
