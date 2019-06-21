@@ -130,7 +130,7 @@ Example
 ```
 client.get_disruption(12345)
 ```
-###Get all disruption modes
+### Get all disruption modes
 Get all disruption modes
 ```
 Returns
