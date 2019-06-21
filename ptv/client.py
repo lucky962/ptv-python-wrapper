@@ -153,9 +153,28 @@ class PTVClient(object):
         Returns
         -------
         Directions : dict
-            Dictionary of directions
+            The directions that a specified route travels in.
         """
         path = "/v3/directions/route/{}"
         path = path.format(route_id)
+        params = {}
+        return self._callApi(path, params)
+
+    def get_route_for_direction(self, direction_id):
+        """
+        View all routes for direction.
+
+        Parameters
+        ----------
+        direction_id : int
+            Identifier of direction of travel; values returned by Directions API - /v3/directions/route/{route_id}
+        
+        Returns
+        -------
+        Routes : dict
+            All routes that travel in the specified direction.
+        """
+        path = "/v3/directions/{}"
+        path = path.format(direction_id)
         params = {}
         return self._callApi(path, params)

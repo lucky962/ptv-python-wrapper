@@ -53,8 +53,6 @@ client.get_departure_from_stop(0, 1071)
 ### Get Directions for Route
 View directions for route
 ```
-View directions for route
-
 Parameters
 ----------
 route_id : int
@@ -68,6 +66,24 @@ Directions : dict
 Example:
 ```
 client.get_directions_for_route(1)
+```
+
+### Get Route for Direction
+View Routes for Direction
+```
+Parameters
+----------
+direction_id : int
+    Identifier of direction of travel; values returned by Directions API - /v3/directions/route/{route_id}
+
+Returns
+-------
+Routes : dict
+    All routes that travel in the specified direction.
+```
+Example;
+```
+client.get_route_for_direction(1)
 ```
 
 ## Progress
