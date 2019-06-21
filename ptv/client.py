@@ -476,4 +476,131 @@ class PTVClient(object):
         if match_stop_by_gtfs_stop_id != None:
             params['match_stop_by_gtfs_stop_id'] = str(match_stop_by_gtfs_stop_id).lower()
         return self._callApi(path, params)
-        
+
+    def get_stop(self, stop_id, route_type, stop_location=None, stop_amenities=None, stop_accessibility=None, stop_contact=None, stop_ticket=None, gtfs=None, stop_staffing=None, stop_disruptions=None):
+        """
+        View facilities at a specific stop (Metro and V/Line stations only)
+
+        Parameters
+        ----------
+        stop_id : int
+            Identifier of stop; values returned by Stops API
+        route_type : int
+            Number identifying transport mode; values returned via RouteTypes API
+
+        Optional Parameters
+        -------------------
+        stop_location : bool
+            Indicates if stop location information will be returned (default = false)
+        stop_amenities : bool  
+            Indicates if stop amenity information will be returned (default = false)
+        stop_accessibility : bool
+            Indicates if stop accessibility information will be returned (default = false)
+        stop_contact : bool
+            Indicates if stop contact information will be returned (default = false)
+        stop_ticket : bool
+            Indicates if stop ticket information will be returned (default = false)
+        gtfs : bool
+            Incdicates whether the stop_id is a GTFS ID or not
+        stop_staffing : bool
+            Indicates if stop staffing information will be returned (default = false)
+        stop_disruptions : bool
+            Indicates if stop disruption information will be returned (default = false)
+
+        Returns
+        -------
+        Stop : dict
+            Stop location, amenity and accessibility facility information for the specified stop (metropolitan and V/Line stations only).
+        """
+        path = "/v3/stops/{}/route_type/{}"
+        path.format(stop_id, route_type)
+        params = {}
+        if stop_location != None:
+            params['stop_location'] = str(stop_location).lower()
+        if stop_amenities != None:
+            params['stop_amenities'] = str(stop_amenities).lower()
+        if stop_accessibility != None:
+            params['stop_accessibility'] = str(stop_accessibility).lower()
+        if stop_contact != None:
+            params['stop_contact'] = str(stop_contact).lower()
+        if stop_ticket != None:
+            params['stop_ticket'] = str(stop_ticket).lower()
+        if gtfs != None:
+            params['gtfs'] = str(gtfs).lower()
+        if stop_staffing != None:
+            params['stop_staffing'] = str(stop_staffing).lower()
+        if stop_disruptions != None:
+            params['stop_disruptions'] = str(stop_disruptions).lower()
+        return self._callApi(path, params)
+
+    def get_stops_for_route(self, route_id, route_type, direction_id=None, stop_disruptions=None):
+        """
+        View all stops on a specific route
+
+        Parameters
+        ----------
+        route_id : int
+            Identifier of route; values returned by Routes API - v3/routes
+        route_type : int
+            Number identifying transport mode; values returned via RouteTypes API
+
+        Optional Parameters
+        -------------------
+        direction_id : int
+            An optional direction; values returned by Directions API. When this is set, stop sequence information is returned in the response.
+        stop_disruptions : bool
+            Indicates if stop disruption information will be returned (default = false)
+
+        Returns
+        -------
+        stops : dict
+            All stops on the specified route.
+        """
+        path = "/v3/stops/route/{}/route_type/{}"
+        path.format(route_id, route_type)
+        params = {}
+        if direction_id: 
+            params['direction_id'] = direction_id
+        if stop_disruptions:
+            params['stop_disruptions'] = str(stop_disruptions).lower()
+        return self._callApi(path, params)
+
+    def get_stops_for_location(self, latitude, longitude, route_types=None, max_results=None, max_distance=None, stop_disruptions=None):
+        """
+        View all stops near a specific location
+
+        Parameters
+        ----------
+        latitude : float
+            Geographic coordinate of latitude
+        longitude : float
+            Geographic coordinate of longitude
+
+        Optional Parameters
+        -------------------
+        route_types : Array[int]
+            Filter by route_type; values returned via RouteTypes API
+        max_results : int
+            Maximum number of results returned (default = 30)
+        max_distance : double  
+            Filter by maximum distance (in metres) from location specified via latitude and longitude parameters (default = 300)
+        stop_disruptions : bool
+            Indicates if stop disruption information will be returned (default = false)
+
+        Returns
+        -------
+        stops : dict
+            All stops near the specified location.
+        """
+        path = "/v3/stops/location/{},{}"
+        path.format(latitude, longitude)
+        params = {}
+        if route_types:
+            params['route_types'] = route_types
+        if max_results:
+            params['max_results'] = max_results
+        if max_distance:
+            params['max_distance'] = max_distance
+        if stop_disruptions:
+            params['stop_disruptions'] = stop_disruptions
+        return self._callApi(path, params)
