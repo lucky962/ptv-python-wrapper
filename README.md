@@ -2,6 +2,12 @@
 A python API Wrapper for Public Transport Victoria (PTV)
 
 ## Usage
+Instantiate client by passing in Developer ID and API Key from PTV
+```
+from ptv.client import PTVClient
+
+client = PTVClient(DEV_ID, API_KEY)
+```
 ### Get Departures from Stop
 View departures from a stop
 ```
@@ -37,6 +43,10 @@ Returns
 -------
 Departures : dict
     Dictionary of departures
+```
+Example:
+```
+client.get_departure_from_stop(0, 1071)
 ```
 
 ## Progress
