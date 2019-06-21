@@ -140,3 +140,9 @@ class PTVClient(object):
         if expand:
             params['expand'] = str(expand).lower()
         return self._callApi(path, params)
+
+    def get_direction_for_route(self, route_id):
+        path = "/v3/directions/route/{}"
+        path = path.format(route_id)
+        params = {}
+        return self._callApi(path, params)
