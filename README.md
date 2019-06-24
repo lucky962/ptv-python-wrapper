@@ -1,5 +1,12 @@
-# ptv-python-wrapper
-A python API Wrapper for Public Transport Victoria (PTV)
+# Public Transport Victoria (PTV) Python API Wrapper
+Python3 API Wrapper for Public Transport Victoria (https://www.ptv.vic.gov.au/)
+
+For the full API Documentation as well as information on how to request an API key, check out PTV [Documentation](https://www.ptv.vic.gov.au/footer/data-and-reporting/datasets/ptv-timetable-api/) and [Swagger](http://timetableapi.ptv.vic.gov.au/swagger/ui/index)
+
+## Installation
+```
+$ python install ptv-wrapper
+```
 
 ## Usage
 Instantiate client by passing in Developer ID and API Key from PTV
@@ -475,5 +482,7 @@ The things we are working on:
     - [x] View all stops near a specific location
 - [ ] Other
     - [ ] Setup.py
-    - [ ] Documentation
+    - [x] Documentation
     
+## Contribution
+If you've found a bug or would like a new feature, please open an issue or create a pull request.
