@@ -5,7 +5,7 @@ For the full API Documentation as well as information on how to request an API k
 
 ## Installation
 ```
-$ pip install ptv-wrapper
+$ pip install ptv-python-wrapper
 ```
 
 ## Usage
