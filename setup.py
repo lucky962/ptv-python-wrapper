@@ -17,4 +17,5 @@ setup(
     ],
     keywords=['ptv', 'melbourne', 'victoria', 'public transport'],
     install_requires=['requests'],
+    tests_require=['pytest'],
 )
