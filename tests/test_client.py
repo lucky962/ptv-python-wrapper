@@ -1,8 +1,8 @@
 from pytest import fixture
 from ptv.client import PTVClient
 
-DEV_ID = "3001026"
-API_KEY = "fa83ef37-71d1-49e3-afa1-b8a765327650"
+DEV_ID = "DEV_ID"
+API_KEY = "API_KEY"
 
 FLINDERS_ST_STATION_STOP_ID = 1071
 ROUTE_ID = 1
