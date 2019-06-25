@@ -59,6 +59,7 @@ class PTVClient(object):
         params['devid'] = self.dev_id
         query = "?" + urllib.parse.urlencode(params,doseq=True)
         url = BASE_URL + path + query + "&signature=" + self._calculateSignature(path + query)
+        print(url)
         return url
         
     def _callApi(self, path, params = {}): 
@@ -207,9 +208,9 @@ class PTVClient(object):
         path = "/v3/disruptions"
         params = {}
         if route_id:
-            path += f"/route_id/{route_id}"
+            path += f"/route/{route_id}"
         if stop_id:
-            path += f"/stop_id/{stop_id}"
+            path += f"/stop/{stop_id}"
         if disruption_status:
             params['disruption_status'] = disruption_status
         return self._callApi(path, params)
@@ -228,8 +229,8 @@ class PTVClient(object):
         disruptions : dict
             Disruption information for the specified disruption ID.
         """
-        path = "/v3/disruptions{}"
-        path.format(disruption_id)
+        path = "/v3/disruptions/{}"
+        path = path.format(disruption_id)
         params = {}
         return self._callApi(path, params)
 
@@ -302,7 +303,7 @@ class PTVClient(object):
             The stopping pattern of the specified trip/service run and route type.
         """
         path = "/v3/pattern/run/{}/route_type/{}"
-        path.format(run_id, route_type)
+        path = path.format(run_id, route_type)
         params = {}
         params['expand'] = expand
         if stop_id:
@@ -350,7 +351,7 @@ class PTVClient(object):
             The route name and number for the specified route ID.
         """
         path = "/v3/routes/{}"
-        path.format(route_id)
+        path = path.format(route_id)
         params = {}
         return self._callApi(path, params)
 
@@ -387,7 +388,7 @@ class PTVClient(object):
             The trip/service run details for the run ID and route type specified.
         """
         path = "/v3/runs/{}"
-        path.format(run_id)
+        path = path.format(run_id)
         params = {}
         if route_type:
             path += f"/route_type/{route_type}"
@@ -413,7 +414,7 @@ class PTVClient(object):
             All trip/service run details for the specified route ID.
         """
         path = "/v3/runs/route/{}"
-        path.format(route_id)
+        path = path.format(route_id)
         params = {}
         if route_type:
             path += f"/route_type/{route_type}"
@@ -455,7 +456,7 @@ class PTVClient(object):
             Stops, routes and myki ticket outlets that contain the search term (note: stops and routes are ordered by route_type by default).
         """
         path = "/v3/search/{}"
-        path.format(search_term)
+        path = path.format(urllib.parse.quote(search_term))
         params = {}
         if route_types:
             params['route_types'] = route_types
@@ -513,7 +514,7 @@ class PTVClient(object):
             Stop location, amenity and accessibility facility information for the specified stop (metropolitan and V/Line stations only).
         """
         path = "/v3/stops/{}/route_type/{}"
-        path.format(stop_id, route_type)
+        path = path.format(stop_id, route_type)
         params = {}
         if stop_location != None:
             params['stop_location'] = str(stop_location).lower()
@@ -557,7 +558,7 @@ class PTVClient(object):
             All stops on the specified route.
         """
         path = "/v3/stops/route/{}/route_type/{}"
-        path.format(route_id, route_type)
+        path = path.format(route_id, route_type)
         params = {}
         if direction_id: 
             params['direction_id'] = direction_id
@@ -593,7 +594,7 @@ class PTVClient(object):
             All stops near the specified location.
         """
         path = "/v3/stops/location/{},{}"
-        path.format(latitude, longitude)
+        path = path.format(latitude, longitude)
         params = {}
         if route_types:
             params['route_types'] = route_types

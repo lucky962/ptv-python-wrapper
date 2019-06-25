@@ -473,7 +473,7 @@ The things we are working on:
     - [x] View facilities at a specific stop (Metro and V/Line stations only)
     - [x] View all stops on a specific route
     - [x] View all stops near a specific location
-- [ ] Other
-    - [ ] Setup.py
-    - [ ] Documentation
+- [x] Other
+    - [x] Setup.py
+    - [x] Documentation
     
