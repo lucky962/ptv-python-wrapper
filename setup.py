@@ -6,6 +6,7 @@ setup(
     packages=find_packages(),
     description='An API Wrapper for Public Transport Victoria (PTV)',
     long_description=open('README.md').read(),
+    long_description_content_type="text/markdown",
     url='https://github.com/lucky962/ptv-python-wrapper',
     license='MIT',
     author='Leo Terray',
