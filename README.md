@@ -437,52 +437,5 @@ Example
 client.get_stops_for_location(123,123)
 ```
 
-## Progress
-This is a work-in-progress api wrapper
-
-The things we are working on:
-- [x] Api Calling
-    - [x] Calculate Signature
-    - [x] Get Url
-    - [x] Call Api
-- [x] Departures
-    - [x] View departures for all routes from a stop
-    - [x] View departures for a specific route from a stop
-- [x] Directions
-    - [x] View directions that a route travels in
-    - [x] View all routes for a directino of travel
-    - [x] View all routes of a particular type for a direction of travel
-- [x] Disruptions
-    - [x] View all disruptions for all route types
-    - [x] View all disruptions for a particular route
-    - [x] View all disruptions for a particular route and stop
-    - [x] View all disruptions for a particular stop
-    - [x] View a specific disruption
-    - [x] Get all disruptions modes
-- [x] Outlets
-    - [x] List all ticket outlets
-    - [x] List ticket outlets near a specific location
-- [x] Patterns
-    - [x] View the stopping pattern for a specific trip/service run
-- [x] Routes
-    - [x] View route names and numbers for all routes
-    - [x] View route name and number for specific route ID
-- [x] RouteTypes
-    - [x] View all route types and their names
-- [x] Runs
-    - [x] View all trip/service runs for a specific route ID
-    - [x] View all trip/service runs for a specific route ID and route type
-    - [x] View all trip/service runs for a specific run ID
-    - [x] View the trip/service runs for a specific run ID and route type
-- [x] Search
-    - [x] View stops, routes and myki ticket outlets that match the search term
-- [x] Stops
-    - [x] View facilities at a specific stop (Metro and V/Line stations only)
-    - [x] View all stops on a specific route
-    - [x] View all stops near a specific location
-- [x] Other
-    - [x] Setup.py
-    - [x] Documentation
-    
 ## Contribution
 If you've found a bug or would like a new feature, please open an issue or create a pull request.    

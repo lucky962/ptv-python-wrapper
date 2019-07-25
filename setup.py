@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ptv-python-wrapper',
-    version='0.1.0',
+    version='0.1.1',
     packages=find_packages(),
     description='An API Wrapper for Public Transport Victoria (PTV)',
     long_description=open('README.md').read(),
@@ -13,7 +13,7 @@ setup(
     author_email='leoterray@yahoo.com.au',
     python_requires='>=3.6',
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Programming Language :: Python :: 3.6',
     ],
     keywords=['ptv', 'melbourne', 'victoria', 'public transport'],
