@@ -4,11 +4,11 @@ import hmac
 import requests
 import urllib
 
-BASE_URL = 'http://timetableapi.ptv.vic.gov.au'
+BASE_URL = 'timetableapi.ptv.vic.gov.au'
 
 class PTVClient(object):
     """ Class to make calls to PTV Api """
-    def __init__(self, dev_id, api_key):
+    def __init__(self, dev_id, api_key, not_secure=None):
         """
         Initialize a PTVClient
 
@@ -18,9 +18,18 @@ class PTVClient(object):
             Developer ID from PTV
         api_key : str
             API key from PTV
+
+        Optional Parameters
+        -------------------
+        not_secure : bool
+            Indicates whether or not to use http (default = false)
         """
         self.dev_id = dev_id
         self.api_key = api_key
+        if not_secure:
+            self.protoc = 'http://'
+        else:
+            self.protoc = 'https://'
 
     def _calculateSignature(self, path):
         """
@@ -58,7 +67,7 @@ class PTVClient(object):
         """
         params['devid'] = self.dev_id
         query = "?" + urllib.parse.urlencode(params,doseq=True)
-        url = BASE_URL + path + query + "&signature=" + self._calculateSignature(path + query)
+        url = self.protoc + BASE_URL + path + query + "&signature=" + self._calculateSignature(path + query)
         return url
         
     def _callApi(self, path, params = {}): 
