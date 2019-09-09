@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='ptv-python-wrapper',
-    version='0.1.1',
+    version='0.2.0',
     packages=find_packages(),
     description='An API Wrapper for Public Transport Victoria (PTV)',
     long_description=open('README.md').read(),
